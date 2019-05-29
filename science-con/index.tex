@@ -1,0 +1,84 @@
+%\documentclass[xetex,mathserif,serif,t]{beamer}
+% Если хотим соотношение сторон 16:9
+\documentclass[aspectratio=169,xetex,mathserif,serif,t]{beamer}
+
+%%% Преамбула
+\usetheme{MasterThesis} % Тема
+
+%%% Работа с русским языком
+\usepackage{fontspec,xunicode,xltxtra}
+
+\defaultfontfeatures{Ligatures=TeX} % Для преобразования -- и ---
+\setmainfont{PT Sans}
+\setmonofont{PT Mono}
+
+%%% Beamer по-русски
+\newtheorem{rtheorem}{Теорема}
+\newtheorem{rproof}{Доказательство}
+\newtheorem{rexample}{Пример}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+%\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%%% Свои команды
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}    % Для вставки рисунков
+\graphicspath{{../images/}} % Каталоги с картинками
+\setlength\fboxsep{3pt}  % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}     % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow}   % Слияние строк в таблице
+
+%%% Другие пакеты
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе
+\usepackage{soulutf8} % Модификаторы начертания
+\usepackage{csquotes} % Еще инструменты для ссылок
+\usepackage{multicol} % Несколько колонок
+\usepackage{etoolbox} % Логические операторы
+
+%%% Картинки
+\usepackage{tikz,calc,ifthen,color}
+
+%%% Листинги
+\usepackage{listings}
+
+\lstset{
+    string=[s]{"}{"},
+    stringstyle=\color{blue},
+    comment=[l]{:},
+    commentstyle=\color{black},
+}
+
+\lstdefinelanguage{js}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, export, extends},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this, interface},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\title{Инструментарий для представления комплексных расписаний на базе веб-платформы}
+\author{Красильников Р. Б.}
+\date{2019}
+
+\begin{document}
+\input{slides.tex}
+\end{document}
