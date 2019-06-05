@@ -22,13 +22,9 @@
 \newfontfamily\cyrillicfont{Times New Roman}
 \setmonofont{FreeMono} % Моноширинный шрифт для оформления кода
 
-% Формулы
-\usepackage{mathtools,unicode-math} % Не совместим с amsmath
-\setmathfont{XITS Math}             % Шрифт для формул: https://github.com/khaledhosny/xits-math
-\numberwithin{equation}{section}    % Формула вида секция.номер
-
 % Абзацы и списки
 \usepackage{enumerate}   % Тонкая настройка списков
+\usepackage[ampersand]{easylist} % Простой синтаксис для списков
 \usepackage{indentfirst} % Красная строка после заголовка
 \usepackage{float}       % Расширенное управление плавающими объектами
 \usepackage{multirow}    % Сложные таблицы
@@ -129,8 +125,6 @@
 \captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
 
-
-
 % Заголовки секций в оглавлении в верхнем регистре
 \usepackage{textcase}
 \makeatletter
@@ -148,7 +142,7 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
+\titleformat{\section}{}{ГЛАВА \thesection.}{1mm}{\centering{\MakeTextUppercase{#1}}}
 \titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
 \titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
