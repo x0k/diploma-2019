@@ -36,10 +36,6 @@
 % Формат подрисуночных записей
 \usepackage{chngcntr}
 
-% Сбрасываем счетчик таблиц и рисунков в каждой новой главе
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
-
 % Гиперссылки
 \usepackage{hyperref}
 \hypersetup{
@@ -53,8 +49,8 @@
 \makeatletter
 \renewcommand*{\@biblabel}[1]{\hfill#1.}
 \renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}
-\renewcommand{\thefigure}{\thesection.\arabic{figure}} % Формат рисунка секция.номер
-\renewcommand{\thetable}{\thesection.\arabic{table}}   % Формат таблицы секция.номер
+\renewcommand{\thefigure}{\arabic{figure}} % Формат рисунка секция.номер
+\renewcommand{\thetable}{\arabic{table}}   % Формат таблицы секция.номер
 \def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
 \makeatother
 
@@ -142,8 +138,8 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{ГЛАВА \thesection.}{1mm}{\centering{\MakeTextUppercase{#1}}}
-\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
+\titleformat{\section}{}{ГЛАВА \thesection. }{0mm}{\centering{\MakeTextUppercase{#1}}}
+\titleformat{\subsection}[block]{\vspace{1em}}{\hspace{12.5mm}\thesubsection}{0mm}{\quad#1\vspace{1em}}
 \titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
 
