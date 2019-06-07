@@ -49,8 +49,8 @@
 \makeatletter
 \renewcommand*{\@biblabel}[1]{\hfill#1.}
 \renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}
-\renewcommand{\thefigure}{\arabic{figure}} % Формат рисунка секция.номер
-\renewcommand{\thetable}{\arabic{table}}   % Формат таблицы секция.номер
+\renewcommand{\thefigure}{\arabic{figure}} % Формат рисунка номер
+\renewcommand{\thetable}{\arabic{table}}   % Формат таблицы номер
 \def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
 \makeatother
 
@@ -58,14 +58,14 @@
 \parindent 1.27cm % Абзацный отступ
 
 \sloppy             % Избавляемся от переполнений
-\hyphenpenalty=1000 % Частота переносов
+\hyphenpenalty=10000 % Частота переносов
 \clubpenalty=10000  % Запрещаем разрыв страницы после первой строки абзаца
 \widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
 
 % Отступы у страниц
 \usepackage{geometry}
 \geometry{left=3cm}
-\geometry{right=1cm}
+\geometry{right=3cm}
 \geometry{top=2cm}
 \geometry{bottom=2cm}
 
@@ -87,7 +87,17 @@
 \renewcommand{\cftsecfont}{\hspace{0pt}}            % Имена секций в содержании не жирным шрифтом
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
-\setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
+\setcounter{tocdepth}{2}                            % Глубина оглавления, до subsubsection
+
+% Подсчет содержимого
+
+\usepackage{totcount}
+\regtotcounter{figure}
+\regtotcounter{table}
+\newtotcounter{citenum}
+\def\oldcite{}
+\let\oldcite=\bibcite
+\def\bibcite{\stepcounter{citenum}\oldcite}
 
 % Список иллюстративного материала
 \renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\MakeTextUppercase}
@@ -115,10 +125,10 @@
 }
 
 % Формат подрисуночных надписей
-\RequirePackage{caption}
-\DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{. } % Разделитель
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
-\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
+\captionsetup[table]{justification=RaggedLeft, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
 
 % Заголовки секций в оглавлении в верхнем регистре
@@ -138,9 +148,9 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{ГЛАВА \thesection. }{0mm}{\centering{\MakeTextUppercase{#1}}}
-\titleformat{\subsection}[block]{\vspace{1em}}{\hspace{12.5mm}\thesubsection}{0mm}{\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
+\titleformat{\section}{}{}{0mm}{\centering{ГЛАВА~\thesection.~\MakeTextUppercase{#1}}}
+\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection.~#1}
+\titleformat{\subsubsection}[block]{}{\hspace{12.5mm}}{0mm}{#1}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
 
 % Библиография: отступы и межстрочный интервал
