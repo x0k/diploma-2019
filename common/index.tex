@@ -65,7 +65,7 @@
 % Отступы у страниц
 \usepackage{geometry}
 \geometry{left=3cm}
-\geometry{right=3cm}
+\geometry{right=2cm}
 \geometry{top=2cm}
 \geometry{bottom=2cm}
 
@@ -81,16 +81,17 @@
 \renewcommand{\labelenumi}{\asbuk{enumi})}    % Список второго уровня
 \renewcommand{\labelenumii}{\arabic{enumii})} % Список третьего уровня
 
+
+\newcommand{\boldtitle}[1]{\textbf{\MakeTextUppercase{#1}}}
 % Содержание
 \usepackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\MakeTextUppercase} % СОДЕРЖАНИЕ
+\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\boldtitle} % СОДЕРЖАНИЕ
 \renewcommand{\cftsecfont}{\hspace{0pt}}            % Имена секций в содержании не жирным шрифтом
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
 \setcounter{tocdepth}{2}                            % Глубина оглавления, до subsubsection
 
 % Подсчет содержимого
-
 \usepackage{totcount}
 \regtotcounter{figure}
 \regtotcounter{table}
@@ -100,12 +101,12 @@
 \def\bibcite{\stepcounter{citenum}\oldcite}
 
 % Список иллюстративного материала
-\renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\MakeTextUppercase}
+\renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\boldtitle}
 \renewcommand{\cftfigfont}{Рисунок }
 \addto\captionsrussian{\renewcommand\listfigurename{Список иллюстративного материала}}
 
 % Список табличного материала
-\renewcommand{\cftlottitlefont}{\hspace{0.2\textwidth}\MakeTextUppercase}
+\renewcommand{\cftlottitlefont}{\hspace{0.2\textwidth}\boldtitle}
 \renewcommand{\cfttabfont}{Таблица }
 \addto\captionsrussian{\renewcommand\listtablename{Список табличного материала}}
 
@@ -148,10 +149,9 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{0mm}{\centering{ГЛАВА~\thesection.~\MakeTextUppercase{#1}}}
-\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection.~#1}
-\titleformat{\subsubsection}[block]{}{\hspace{12.5mm}}{0mm}{#1}
-\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
+\titleformat{\section}{}{}{0mm}{\centering{\boldtitle{ГЛАВА~\thesection.~#1}}}
+\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\textbf{\thesubsection.~#1}}
+\titleformat{\subsubsection}[block]{}{\hspace{12.5mm}}{0mm}{\textbf{#1}}
 
 % Библиография: отступы и межстрочный интервал
 \makeatletter

@@ -4,15 +4,6 @@
 
 % Добавление одного рисунка
 \newcommand{\addimg}[4]{
-    \begin{figure}
-        \centering
-        \includegraphics[width=#2\linewidth]{#1}
-        \caption{#3} \label{#4}
-    \end{figure}
-}
-
-% Добавить рисунок непосредственно в это место
-\newcommand{\addimghere}[4]{
     \begin{figure}[H]
         \centering
         \includegraphics[width=#2\linewidth]{#1}
@@ -31,18 +22,31 @@
     \end{figure}
 }
 
+%% Таблицы %%
+
+% Таблицы
+\newenvironment{tbl}[2]{
+    \begin{table}[H]
+    \small
+    \hyphenpenalty=0
+    \caption{#1} \label{#2}
+}
+{
+    \end{table}
+}
+
 %% Секции %%
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
-    \paragraph{\centerline{{#1}}\vspace{1em}}
+    \paragraph{\centerline{\boldtitle{#1}}\vspace{1em}}
     \addcontentsline{toc}{section}{#1}
 }
 
 % Секция для аннотации (она не включается в содержание)
 \newcommand{\annotation}[1]{
-    \paragraph{\centerline{{#1}}\vspace{1em}}
+    \paragraph{\centerline{\boldtitle{#1}}\vspace{1em}}
 }
 
 % Секция для списка иллюстративного материала
@@ -62,6 +66,6 @@
 % Секции для приложений
 \newcommand{\appsection}[1]{
     \phantomsection
-    \paragraph{\centerline{{#1}}}
-    \addcontentsline{toc}{section}{{#1}}
+    \paragraph{\centerline{\textbf{#1}}}
+    \addcontentsline{toc}{section}{#1}
 }
