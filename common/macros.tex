@@ -28,7 +28,8 @@
 % \renewcommand{\tabular}{\footnotesize\oldtabular}
 
 % Таблицы
-\newenvironment{tbl}[2]{
+\newenvironment{tbl}[2]
+{
     \begin{table}[H]
     \small
     \hyphenpenalty=0
@@ -37,12 +38,6 @@
 {
     \end{table}
 }
-
-%% Листинг %%
-
-\newenvironment{listing}[2]
-{\begin{lstlisting}[caption={#1},label={#2}]}
-{\end{lstlisting}}
 
 %% Секции %%
 

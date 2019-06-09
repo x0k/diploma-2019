@@ -43,13 +43,14 @@
 \def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
 \makeatother
 
-\renewcommand{\baselinestretch}{1.4} % Полуторный межстрочный интервал
+\renewcommand{\baselinestretch}{1.5} % Полуторный межстрочный интервал
 \parindent 1.27cm % Абзацный отступ
 
 \sloppy             % Избавляемся от переполнений
 \hyphenpenalty=10000 % Частота переносов
 \clubpenalty=10000  % Запрещаем разрыв страницы после первой строки абзаца
 \widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
+\hbadness=10000 % Скрывает ошибки `Underfull \hbox'
 
 % Отступы у страниц
 \usepackage{geometry}
@@ -158,6 +159,8 @@
 \titleformat{\section}{}{}{0mm}{\centering{\boldtitle{ГЛАВА~\thesection.~#1}}}
 \titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\textbf{\thesubsection.~#1}}
 \titleformat{\subsubsection}[block]{}{\hspace{12.5mm}}{0mm}{\textbf{#1}}
+\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
+
 
 % Библиография: отступы и межстрочный интервал
 \makeatletter
