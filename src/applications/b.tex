@@ -1,75 +1,45 @@
 \appsection{Приложение Б} \hypertarget{app-b}{\label{app-b}}
 
-\centering{Frontend frameworks}
+\centering{Структура транзитного формата данных}
 
-\begin{table}[H]
-  \small
-  \hyphenpenalty=0
-  \begin{tabularx}{\textwidth}{| p{2cm} | X | X | X |}
-  \hline
-  & React
-  & Vue.js
-  & Angular \\
-  \hline Актуальная версия
-  & 16.7.0
-  & 2.5.21
-  & 7.1.4 \\
-  \hline Загрузок за неделю
-  & 3,622,136
-  & 757,131
-  & 1,950,453 \\
-  \hline Описание
-  & Декларативная, эффективная и гибкая библиотека JavaScript для создания пользовательских интерфейсов.
-  & Прогрессивный, постепенно расширяемый JavaScript-фреймворк для создания пользовательского интерфейса в сети.
-  & Платформа интерфейсного веб-приложения с открытым исходным кодом на основе TypeScript. \\
-  \hline Лучшие стороны
-  & Элегантный стиль программирования.\newline Развитая экосистема.\newline Хорошая документация.
-  & Простая кривая обучения.\newline Элегантный стиль программирования.\newline Хорошая документация.
-  & Полнофункциональный и мощный.\newline Элегантный стиль программирования.\newline Хорошая документация. \\
-  \hline Худшие стороны
-  & Неуклюжий стиль программирования.\newline Раздутый и сложный код.\newline Крутая кривая обучения.
-  & Неуклюжий стиль программирования.\newline Ограниченный и не хватает функций\newline Глючный, подверженный ошибкам код.
-  & Раздутый и сложный код.\newline Неуклюжий стиль программирования.\newline Крутая кривая обучения. \\
-  \hline Лицензия
-  & MIT License
-  & MIT License
-  & MIT License \\
+\begin{tbl}{Блок <<TDateTimePeriod>>}{dateTimePeriod-block}
+  \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
+  \hline Наименование & Тип    & Описание                                 \\
+  \hline start        & number & Дата начала в формате UNIX Epoch time    \\
+  \hline end          & number & Дата окончания в формате UNIX Epoch time \\
   \hline
   \end{tabularx}
-\end{table}
+\end{tbl}
 
-\begin{table}[H]
-  \small
-  \hyphenpenalty=0
-  \begin{tabularx}{\textwidth}{| p{2cm} | X | X | X |}
-  \hline
-  & Preact
-  & Ember
-  & Polymer \\
-  \hline Актуальная версия
-  & 8.4.2
-  & 3.6.1
-  & 3.1.0 \\
-  \hline Загрузок за неделю
-  & 106,155
-  & 81,256
-  & 48,229 \\
-  \hline Описание
-  & Быстрая 3kB альтернатива React с тем же современным API. Компоненты и Виртуальный ДОМ.
-  & Фреймворк JavaScript для создания амбициозных веб-приложений
-  & Оригинальная библиотека веб-компонентов. \\
-  \hline Лучшие стороны
-  & Хорошая производительность.\newline Простой и понятный.\newline Элегантный стиль программирования.
-  & Полнофункциональный и мощный.\newline Элегантный стиль программирования.\newline Хорошая документация.
-  & Элегантный стиль программирования.\newline Простой и понятный.\newline Хорошая команда разработчиков. \\
-  \hline Худшие стороны
-  & Ограниченный и не хватает функций.\newline Неразвитая экосистема.\newline Отсутствие инструментов разработчика.
-  & Низкая популярность.\newline Неуклюжий стиль программирования.\newline Раздутый и сложный код.
-  & Низкая популярность.\newline Неуклюжий стиль программирования.\newline Отсутствие инструментов разработчика. \\
-  \hline Лицензия
-  & MIT License
-  & MIT License
-  & BSD-3-Clause \\
+\begin{tbl}{Блок <<IRule>>}{rule-block}
+  \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
+  \hline Наименование & Тип      & Описание                                                                     \\
+  \hline id           & number   & Идентификатор правила                                                        \\
+  \hline expression   & any[]    & Интерпретируемое выражение                                                   \\
+  \hline require?     & string[] & Список идентификаторов правил, от которых зависит вычисление данного правила \\
   \hline
   \end{tabularx}
-\end{table}
+\end{tbl}
+
+\begin{tbl}{Блок <<IEventOptions>>}{eventOptions-block}
+  \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
+  \hline Наименование    & Тип               & Описание               \\
+  \hline year?           & number | number[] & Ограничение года       \\
+  \hline month?          & number | number[] & Включающие ограничения \\
+  \hline date?           & number | number[] & Включающие ограничения \\
+  \hline day?            & number | number[] & Включающие ограничения \\
+  \hline hour?           & number | number[] & Включающие ограничения \\
+  \hline minute?         & number | number[] & Включающие ограничения \\
+  \hline
+  \end{tabularx}
+\end{tbl}
+
+\begin{tbl}{Блок <<IEventPeriods>>}{eventPeriods-block}
+  \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
+  \hline Наименование    & Тип             & Описание                                          \\
+  \hline dateTimePeriod? & TDateTimePeriod & Полный временной период                           \\
+  \hline datePeriod?     & TDateTimePeriod & Временной период с указанием года, месяца и числа \\
+  \hline timePeriod?     & TDateTimePeriod & Временной период с указанием часа и минут         \\
+  \hline
+  \end{tabularx}
+\end{tbl}
