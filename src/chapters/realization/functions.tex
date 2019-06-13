@@ -1,0 +1,51 @@
+\subsection{Реализация переносимых функций}
+
+Для обеспечения переносимости функций между средами исполнения была поставлена задача разработать библиотеку, позволяющую генерировать шаблоны функций и создавать по ним нативно вычисляемые функции \cite{rule-interpreter}.
+
+Решение данной задачи заключается в следующем: пользователь определяет набор нативных функций и составляет из них выражение в \hyperlink{json}{JSON} формате по следующим правилам.
+\begin{easylist}
+  & Имена функций предварены переопределяемым префиксом. По умолчанию - <<@>>
+  & После имени функции следует список параметров, передаваемых в функцию по умолчанию
+  & Определен набор действий влияющих на процесс интерпретации предваренных переопределяемым префиксом. По умолчанию - <<\$>>
+  && <<>{}>{}>> композиция функций
+  && <<eval>> вычисляет значение функции на месте
+  && <<map>> в качестве аргументов принимает массив и функцию отображения, вычисляет новый массив путем поэлементного применения функции
+\end{easylist}
+
+Пример набора нативных функций представлен на листинге \ref{native-functions-example}
+
+\begin{lstlisting}[caption={Пример набора нативных функций},label={native-functions-example}]
+const operations = {
+  '+': (a: number, b: number) => a + b,
+  '-': (a: number, b: number) => a - b,
+  '/': (a: number, b: number) => a / b,
+  '*': (a: number, b: number) => a * b,
+  '=': (a: number, b: number) => a === b,
+  '%': (a: number, b: number) => a % b,
+  '!': (operand: any) => !operand
+}
+\end{lstlisting}
+
+Тогда определив шаблоны функций и создав по ним нативные функции можно получить результаты представленные в листинге \ref{build-actions-example}.
+
+\begin{lstlisting}[caption={Пример создания и вычисления шаблонных функций},label={build-actions-example}]
+const actionsBuilder = buildActionsBuilder(operations)
+
+function buildAction (expression: TExpression) {
+  return actionsBuilder(expression)[0]
+}
+
+const expression1 = [ '$map', [1, 2, 3], '@inc', [3] ]
+const expression2 = [ '$eval', '@sum', [1, 2, 3] ]
+const expression3 = [ '@-', [ 10, 3 ] ]
+const expression4 = [ '@/', [ 20 ] ]
+
+const action1 = buildAction(expression1) // [4, 5, 6]
+const action2 = buildAction(expression2) // 6
+const action3 = buildAction(expression3)
+const action4 = buildAction(expression4)
+
+action3() // 7
+
+action4(5) // 4
+\end{lstlisting}

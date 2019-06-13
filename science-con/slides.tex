@@ -196,24 +196,10 @@
 \frametitle{\insertsection}
 \framesubtitle{Временной интервал}
 
-\begin{lstlisting}[basicstyle=\tiny, language=js]
-interface IDictionary<T> {
-  [key: string]: T
-}
-
-interface IConstraint {
-    step?: number | TExpression;
-    expression?: TExpression;
-}
-
-interface IConstraints extends IDictionary<IConstraint | undefined> {
-    [YEAR]?: IConstraint
-    [MONTH]?: IConstraint
-    [DATE]?: IConstraint
-    [HOUR]?: IConstraint
-    [MINUTE]?: IConstraint
-}
-\end{lstlisting}
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{time_structure}
+\end{figure}
 \end{frame}
 
 %-------------------------------------------------------------------------------

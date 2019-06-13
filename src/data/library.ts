@@ -1,0 +1,59 @@
+const start = new Date(2000, 0)
+const end = new Date(2000, 0, 2)
+
+const schedule: ISchedule = {
+  name: 'Test',
+  period: {
+    start: start.getTime(),
+    end: end.getTime()
+  },
+  events: [
+    {
+      data: { name: 'event1' },
+      options: {
+        includes: {
+          hour: [1, 2, 12, 13]
+        }
+      }
+    }
+  ],
+  fields: ['name']
+}
+
+const { constraints, rules } = convert(schedule)
+const period = buildIterator(start, end, constraints)
+
+function selector<T extends IDateTime> ({ name }: T) {
+  return Boolean(name)
+}
+
+const gen = buildGenerator(rules, period, selector)
+
+function separator<T extends IDateTime> (step: number) {
+  return ({ value, period: { end } }: IGroupedEvent<T>, current: T) =>
+    value.name === current.name && (end + step === current.milliseconds)
+}
+
+const events = grouper(gen, constraints, separator)
+
+console.log(...events)
+/*
+{
+  value: {
+    "date": 1,
+    "dateMilliseconds": 946674000000, "day": 6, "hour": 1,
+    "hourMilliseconds": 946677600000, "milliseconds": 946677600000, "minute": 0, "month": 0,
+    "monthMilliseconds": 946674000000, "name": "event1", "year": 2000,
+  },
+  period: { start: 946677600000, end: 946684740000 }
+},
+{
+  value: {
+    "date": 1,
+    "dateMilliseconds": 946674000000, "day": 6, "hour": 12,
+    "hourMilliseconds": 946717200000, "milliseconds": 946717200000, "minute": 0, "month": 0,
+    "monthMilliseconds": 946674000000, "name": "event1", "year": 2000,
+  },
+  period: { start: 946717200000, end: 946724340000 }
+}
+*/
