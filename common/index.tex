@@ -72,6 +72,7 @@
 \renewcommand{\labelenumii}{\arabic{enumii})} % Список третьего уровня
 
 % Оформление исходного кода
+\usepackage{color}
 \usepackage{listings}
 \lstset{
     basicstyle=\small\ttfamily, % Размер и тип шрифта
@@ -136,8 +137,10 @@
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
 \captionsetup[table]{justification=RaggedLeft, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы справа
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
-\captionsetup[lstlisting]{justification=RaggedLeft, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись листинга справа
+\captionsetup[lstlisting]{justification=RaggedLeft, labelsep=defffis, format=listing, singlelinecheck=false} % Подпись листинга справа
 \addto\captionsrussian{\renewcommand*{\lstlistingname}{Листинг}} % Имя листинга
+%% код ниже нарисует серую рамочку вокруг заголовка кода.
+\DeclareCaptionFormat{listing}{#1#2#3\vspace{0.5em}}
 
 % Заголовки секций в оглавлении в верхнем регистре
 \usepackage{textcase}
