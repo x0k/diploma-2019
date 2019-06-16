@@ -12,7 +12,7 @@
   && <<map>> в качестве аргументов принимает массив и функцию отображения, вычисляет новый массив путем поэлементного применения функции
 \end{easylist}
 
-Пример набора нативных функций представлен в листинге \ref{lst:native-functions-example}
+Пример набора нативных функций представлен в листинге \ref{lst:native-functions-example}.
 
 \begin{lstlisting}[caption={Пример набора нативных функций},label={lst:native-functions-example}]
 const operations = {
@@ -26,7 +26,8 @@ const operations = {
 }
 \end{lstlisting}
 
-Тогда определив шаблоны функций и создав по ним нативные функции можно получить результаты представленные в листинге \ref{lst:build-actions-example}.
+После определения шаблонов функций и создания по ним нативных, функции можно будет вычислить.
+Данный процесс и его результат представлен в листинге \ref{lst:build-actions-example}.
 
 \begin{lstlisting}[caption={Пример создания и вычисления шаблонных функций},label={lst:build-actions-example}]
 const actionsBuilder = buildActionsBuilder(operations)
