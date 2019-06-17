@@ -2,16 +2,16 @@
 
 \centering{Структура транзитного формата данных}
 
-\begin{tbl}{Блок <<TDateTimePeriod>>}{dateTimePeriod-block}
+\begin{tblh}{Структура блока <<TDateTimePeriod>>}{dateTimePeriod-block}
   \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
   \hline Наименование & Тип    & Описание                                 \\
   \hline start        & number & Дата начала в формате UNIX Epoch time    \\
   \hline end          & number & Дата окончания в формате UNIX Epoch time \\
   \hline
   \end{tabularx}
-\end{tbl}
+\end{tblh}
 
-\begin{tbl}{Блок <<IRule>>}{rule-block}
+\begin{tblh}{Структура блока <<IRule>>}{rule-block}
   \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
   \hline Наименование & Тип      & Описание                                                                     \\
   \hline id           & number   & Идентификатор правила                                                        \\
@@ -19,9 +19,9 @@
   \hline require?     & string[] & Список идентификаторов правил, от которых зависит вычисление данного правила \\
   \hline
   \end{tabularx}
-\end{tbl}
+\end{tblh}
 
-\begin{tbl}{Блок <<IEventOptions>>}{eventOptions-block}
+\begin{tblh}{Структура блока <<IEventOptions>>}{eventOptions-block}
   \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
   \hline Наименование    & Тип               & Описание               \\
   \hline year?           & number | number[] & Ограничение года       \\
@@ -32,9 +32,9 @@
   \hline minute?         & number | number[] & Включающие ограничения \\
   \hline
   \end{tabularx}
-\end{tbl}
+\end{tblh}
 
-\begin{tbl}{Блок <<IEventPeriods>>}{eventPeriods-block}
+\begin{tblh}{Структура блока <<IEventPeriods>>}{eventPeriods-block}
   \begin{tabularx}{\textwidth}{| p{3cm} | p{6cm} | X |}
   \hline Наименование    & Тип             & Описание                                          \\
   \hline dateTimePeriod? & TDateTimePeriod & Полный временной период                           \\
@@ -42,6 +42,6 @@
   \hline timePeriod?     & TDateTimePeriod & Временной период с указанием часа и минут         \\
   \hline
   \end{tabularx}
-\end{tbl}
+\end{tblh}
 
 \clearpage
