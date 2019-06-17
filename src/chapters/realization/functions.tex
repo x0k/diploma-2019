@@ -18,13 +18,14 @@
 
 \begin{lstlisting}[caption={Пример набора нативных функций},label={lst:native-functions-example}]
 const operations = {
-  '+': (a: number, b: number) => a + b,
   '-': (a: number, b: number) => a - b,
   '/': (a: number, b: number) => a / b,
-  '*': (a: number, b: number) => a * b,
-  '=': (a: number, b: number) => a === b,
-  '%': (a: number, b: number) => a % b,
-  '!': (operand: any) => !operand
+  inc (step: number, value: number) {
+    return value + step
+  },
+  sum (...numbers: number[]) {
+    return numbers.reduce((sum, value) => sum + value, 0)
+  }
 }
 \end{lstlisting}
 
@@ -33,22 +34,17 @@ const operations = {
 
 \begin{lstlisting}[caption={Пример создания и вычисления шаблонных функций},label={lst:build-actions-example}]
 const actionsBuilder = buildActionsBuilder(operations)
-
 function buildAction (expression: TExpression) {
   return actionsBuilder(expression)[0]
 }
-
 const expression1 = [ '$map', [1, 2, 3], '@inc', [3] ]
 const expression2 = [ '$eval', '@sum', [1, 2, 3] ]
 const expression3 = [ '@-', [ 10, 3 ] ]
 const expression4 = [ '@/', [ 20 ] ]
-
 const action1 = buildAction(expression1) // [4, 5, 6]
 const action2 = buildAction(expression2) // 6
 const action3 = buildAction(expression3)
 const action4 = buildAction(expression4)
-
 action3() // 7
-
 action4(5) // 4
 \end{lstlisting}
