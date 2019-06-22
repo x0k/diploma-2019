@@ -49,6 +49,20 @@
     \end{table}
 }
 
+\newenvironment{boxed}
+{
+    \begin{center}
+    \small
+    \hyphenpenalty=0
+    \begin{longtable}{|p{\textwidth}|}
+    \hline\\
+}
+{
+    \\\\\hline
+    \end{longtable}
+    \end{center}
+}
+
 %% Секции %%
 
 % Секции без номеров (введение, заключение...), вместо section*{}

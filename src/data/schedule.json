@@ -1,10 +1,24 @@
 {
-  "name": "РАСПИСАНИЕ ЗАНЯТИЙ на неделю c 06.05.2019 по 12.05.2019 для группы 147а",
+  "name": "Расписание для группы 147а",
   "period": {
     "start": 1557090000000,
     "end": 1557608400000
   },
   "fields": [ "subject", "type", "teacher", "room" ],
+  "element": [ "@compose", [
+    "$>>", "@compose", [
+      "$>>", "@extract", ["%subject"],
+      "@property", ["primary"],
+      "$>>", "@extract", ["%type, %teacher"],
+      "@property", ["secondary"]
+    ],
+    "@flat", [ "@element", ["ListItemText", { "key": "item-primary" }] ],
+    "$>>", "@extract", ["%room"],
+    "$>>", "@property", ["children"],
+    "$>>", "@element", ["Typography"],
+    "$>>", "@property", ["children"],
+    "@element", ["ListItemSecondaryAction", { "key": "item-secondary" }]
+  ] ],
   "events": [
     {
       "data": {
