@@ -49,18 +49,13 @@
     \end{table}
 }
 
-\newenvironment{boxed}
+\newenvironment{code}
 {
-    \begin{center}
     \small
-    \hyphenpenalty=0
-    \begin{longtable}{|p{\textwidth}|}
-    \hline\\
+    \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`$=3\catcode`^=7\catcode`_=8},frame=single]
 }
 {
-    \\\\\hline
-    \end{longtable}
-    \end{center}
+    \end{Verbatim}
 }
 
 %% Секции %%
