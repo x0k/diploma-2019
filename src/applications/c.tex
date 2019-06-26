@@ -2,9 +2,7 @@
 
 \centering{Список нативных операций}
 
-{
-\small
-\begin{Verbatim}[frame=single]
+\begin{code}[frame=single]
 function evaluate<T> (handler: any, value: T) {
   return typeof handler === 'function' ? handler(value) :
 handler
@@ -67,7 +65,6 @@ value)
 dictionary[key] }
   period<T> (start: T, end: T) { return { start, end } }
 }
-\end{Verbatim}
-}
+\end{code}
 
 \clearpage

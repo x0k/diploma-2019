@@ -49,14 +49,11 @@
     \end{table}
 }
 
+% Verbatim окружение с маленьким шрифтом
+
 \newenvironment{code}
-{
-    \small
-    \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`$=3\catcode`^=7\catcode`_=8},frame=single]
-}
-{
-    \end{Verbatim}
-}
+{\small\Verbatim}
+{\endVerbatim}
 
 %% Секции %%
 
