@@ -1,0 +1,7 @@
+\frametitle{\insertsection}
+\framesubtitle{Временной интервал}
+
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{time_structure}
+\end{figure}

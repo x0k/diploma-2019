@@ -1,0 +1,83 @@
+%\documentclass[xetex,mathserif,serif,t]{beamer}
+% Если хотим соотношение сторон 16:9
+\documentclass[aspectratio=169,xetex,mathserif,serif,t]{beamer}
+
+%%% Преамбула
+\usetheme{MasterThesis} % Тема
+
+%%% Работа с русским языком
+\usepackage{fontspec,xunicode,xltxtra}
+
+\defaultfontfeatures{Ligatures=TeX} % Для преобразования -- и ---
+\setmainfont{PT Sans}
+\setmonofont{PT Mono}
+
+%%% Beamer по-русски
+\newtheorem{rtheorem}{Теорема}
+\newtheorem{rproof}{Доказательство}
+\newtheorem{rexample}{Пример}
+
+%%% Работа с картинками
+\usepackage{graphicx}    % Для вставки рисунков
+\graphicspath{{../images/}} % Каталоги с картинками
+\setlength\fboxsep{3pt}  % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}     % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow}   % Слияние строк в таблице
+
+%%% Другие пакеты
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе
+\usepackage{soulutf8} % Модификаторы начертания
+\usepackage{csquotes} % Еще инструменты для ссылок
+\usepackage{multicol} % Несколько колонок
+\usepackage{etoolbox} % Логические операторы
+
+%%% Картинки
+\usepackage{tikz,calc,ifthen,color}
+
+%%% Листинги
+\usepackage{listings}
+
+\lstset{
+    string=[s]{"}{"},
+    stringstyle=\color{blue},
+    comment=[l]{:},
+    commentstyle=\color{black},
+}
+
+\lstdefinelanguage{js}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, export, extends},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this, interface},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\title{Проектирование приложения для представления\\ комплексных расписаний с использованием подхода\\ Progressive Web Application}
+% \subtitle{Выпускная квалификационная работа на тему:}
+\author{
+  Исполнитель:\\
+  Красильников Р. Б.\\
+  \vspace{0.7\baselineskip}
+  Научный руководитель:\\
+  к.ф.-м.н.,~доцент~Гольчевский Ю.В.
+}
+\institute{<<Сыктывкарский государственный университет имени Питирима Сорокина>> \\
+Институт точных наук и информационных технологий \\
+Кафедра информационных систем}
+\date{2019}
+
+\begin{document}
+\input{slides.tex}
+\end{document}

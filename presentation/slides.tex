@@ -1,0 +1,234 @@
+%%% Содержимое слайдов
+
+% Титульный слайд
+\frame[plain]{\titlepage}
+
+%-------------------------------------------------------------------------------
+
+\section{Введение}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Цели и задачи}
+
+\textbf{Цель:}
+\begin{itemize}
+    \item Проектирование приложения для представления комплексных расписаний
+\end{itemize}
+
+\textbf{Задачи:}
+\begin{itemize}
+    \item Анализ предметной области
+    \item Определение способа реализации процесса
+    \item Проектирование архитектуры приложения
+    \item Реализация приложения
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Основные понятия}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Веб-платформа}
+
+\textbf{Преимущества:}
+\begin{itemize}
+    \item Распространенность
+    \item Кроссплатформенность
+    \item Опыт разработки
+\end{itemize}
+
+\textbf{Недостатки:}
+\begin{itemize}
+    \item Производительность
+    \item Ограниченность среды исполнения кода
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Основные понятия}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Комплексное расписание}
+
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{schedule_types}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Основные понятия}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Пример комплексного расписания}
+
+\begin{figure}
+    \center
+    \includegraphics[width=\linewidth]{monday}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Основные понятия}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Представление расписания}
+
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{tasks}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Что такое расписание?}
+
+\begin{frame}
+\frametitle{\insertsection}
+
+\begin{figure}
+    \center
+    \includegraphics[width=70mm]{date_mapper}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Представление расписания}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{Генерация функции}
+
+\minipage{0.35\textwidth}
+    \begin{lstlisting}[basicstyle=\tiny]
+{
+    "data": {
+        "subject": "Предмет",
+        "type": "лаб.",
+        "teacher": "Преподаватель",
+        "room": "251/1"
+    },
+    "options": {
+        "includes": {
+            "day": [1, 3]
+        }
+    },
+    "rules": {
+        "includes": {
+            "call": [6, 7]
+        }
+    }
+}
+    \end{lstlisting}
+\endminipage\hfill
+\minipage{0.6\textwidth}
+    \begin{lstlisting}[basicstyle=\tiny]
+[
+    "@case", [
+    "@and", [
+        "$>>", "@get", [ "day" ], "@includes", [ [1, 3] ],
+        "$>>", "@get", [ "call" ], "@includes", [ [6, 7] ]
+    ],
+    "251/1",
+    "@default", [ false ] ],
+]
+    \end{lstlisting}
+\endminipage
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Представление расписания}
+
+\begin{frame}[fragile]
+\frametitle{\insertsection}
+\framesubtitle{Временной интервал}
+
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{time_structure}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Представление расписания}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Генератор событий}
+
+\vspace{1cm}
+
+\begin{figure}
+    \center
+    \includegraphics[width=\linewidth]{event_build_order}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Представление расписания}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{Группировщик событий}
+
+\vspace{1cm}
+
+\begin{figure}
+    \center
+    \includegraphics[width=\linewidth]{grouper}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Применение}
+
+\begin{frame}
+\frametitle{\insertsection}
+
+\begin{figure}[!htb]
+    \minipage{0.6\textwidth}
+        \includegraphics[width=\linewidth]{client_schedule}
+    \endminipage\hfill
+    \minipage{0.33\textwidth}
+        \includegraphics[width=\linewidth]{client_mobile}
+    \endminipage
+\end{figure}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Спасибо за внимание}
+
+\begin{frame}
+    \frametitle{\insertsection}
+
+    \textbf{Тема:}
+    \begin{itemize}
+        \item Проектирование приложения для представления комплексных расписаний с использованием подхода Progressive Web Application
+    \end{itemize}
+
+    \textbf{Автор:}
+    \begin{itemize}
+        \item Красильников Роман Борисович
+    \end{itemize}
+
+\end{frame}
