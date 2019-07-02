@@ -5,23 +5,45 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Основные понятия}
+\section{Введение}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Progressive Web Application}
+\framesubtitle{Цели и задачи}
+
+\textbf{Цель:}
+\begin{itemize}
+    \item Проектирование приложения для представления комплексных расписаний
+\end{itemize}
+
+\textbf{Задачи:}
+\begin{itemize}
+    \item Анализ предметной области
+    \item Определение способа реализации процесса
+    \item Проектирование архитектуры приложения
+    \item Реализация приложения
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Progressive Web Application}
+
+\begin{frame}
+\frametitle{\insertsection}
 
 Группа веб-приложений использующих современные возможности веб-платформы.
 
 \vspace{5mm}
 
-Преимущества классических веб-приложений:
+\textbf{Преимущества классических веб-приложений:}
 \begin{itemize}
     \item Доступность
     \item Универсальность
 \end{itemize}
 
-Недостатки классических веб-приложений:
+\textbf{Недостатки классических веб-приложений:}
 \begin{itemize}
     \item Производительность
     \item Ограниченность среды исполнения кода
@@ -31,11 +53,10 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Основные понятия}
+\section{Комплексное расписание}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Комплексное расписание}
 
 \begin{figure}
     \center
@@ -45,11 +66,10 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Основные понятия}
+\section{Пример комплексного расписания}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Пример комплексного расписания}
 
 \begin{figure}
     \center
@@ -59,11 +79,38 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Основные понятия}
+\section{Модель процесса планирования}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Представление расписания}
+\framesubtitle{AS-IS}
+
+\begin{figure}
+    \center
+    \includegraphics[height=70mm]{as_is}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Модель процесса планирования}
+
+\begin{frame}
+\frametitle{\insertsection}
+\framesubtitle{TO-BE}
+
+\begin{figure}
+    \center
+    \includegraphics[height=60mm]{to_be}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Результат представления расписания}
+
+\begin{frame}
+\frametitle{\insertsection}
 
 \begin{figure}
     \center
@@ -86,11 +133,23 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Представление расписания}
+\section{Сущности приложения}
+
+\begin{frame}
+\frametitle{\insertsection}
+
+\begin{figure}
+    \center
+    \includegraphics[width=\linewidth]{class_diagram}
+\end{figure}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Конвертор}
 
 \begin{frame}[fragile]
 \frametitle{\insertsection}
-\framesubtitle{Генерация функции расписания}
 
 \minipage{0.35\textwidth}
     \begin{lstlisting}[basicstyle=\tiny]
@@ -131,11 +190,10 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Представление расписания}
+\section{Генерация временного промежутка}
 
 \begin{frame}[fragile]
 \frametitle{\insertsection}
-\framesubtitle{Временной интервал}
 
 \begin{figure}
     \center
@@ -145,11 +203,10 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Представление расписания}
+\section{Вычислитель состояний}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Генератор событий}
 
 \vspace{1cm}
 
@@ -161,11 +218,10 @@
 
 %-------------------------------------------------------------------------------
 
-\section{Представление расписания}
+\section{Группировщик}
 
 \begin{frame}
 \frametitle{\insertsection}
-\framesubtitle{Группировщик событий}
 
 \vspace{1cm}
 
@@ -190,6 +246,23 @@
         \includegraphics[width=\linewidth]{client_mobile}
     \endminipage
 \end{figure}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\section{Заключение}
+
+\begin{frame}
+\frametitle{\insertsection}
+
+\textbf{Были решены следующие задачи:}
+\begin{itemize}
+    \item Произведен анализ предметной области
+    \item Определен способа реализации
+    \item Спроектирована архитектура приложения
+    \item Реализовано приложение
+\end{itemize}
 
 \end{frame}
 
